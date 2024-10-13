@@ -53,9 +53,10 @@ const DetailPage = () => {
     }, [id]);
 
     const getEmbedUrl = (url) => {
-        const videoId = url.split('v=')[1]; 
-        return `https://www.youtube.com/embed/${videoId}`; 
-    };
+        if (!url) return ''; // Jika trailer null, return string kosong
+        const videoId = url.split('v=')[1]; // Proses URL jika tidak null
+        return `https://www.youtube.com/embed/${videoId}`;
+      };
       
     if (!movie) {
         return <h2>Loading...</h2>; 

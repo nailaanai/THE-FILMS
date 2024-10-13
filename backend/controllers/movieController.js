@@ -125,10 +125,11 @@ exports.getTopRatedMovies = (req, res) => {
     if (err) return res.status(500).json({ error: err.message });
     const movies = results.map(movie => ({
       ...movie,
-      genres: movie.genres ? movie.genres.split(',') : [], // Mengubah string genres menjadi array
-      countries: movie.countries ? movie.countries.split(',') : [], // Mengubah string countries menjadi array
-      actors: movie.actors ? movie.actors.split(',') : [] // Mengubah string actors menjadi array
-    }));
+      trailer: movie.trailer ? movie.trailer : '', // Mengganti null dengan string kosong
+      genres: movie.genres ? movie.genres.split(',') : [], 
+      countries: movie.countries ? movie.countries.split(',') : [],
+      actors: movie.actors ? movie.actors.split(',') : []
+    }));    
     res.status(200).json(movies);
   });
 };
