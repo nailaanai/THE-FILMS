@@ -197,6 +197,7 @@ exports.getTopMovies = (req, res) => {
 exports.searchMovies = (req, res) => {
   const { query, genres = '', countries = '', years = '', statuses = '' } = req.query;
 
+  // Memulai query dasar untuk pencarian film
   let sql = `
     SELECT DISTINCT m.*
     FROM movies m
@@ -208,6 +209,12 @@ exports.searchMovies = (req, res) => {
   `;
 
   const queryParams = [];
+
+  // Mencari berdasarkan query (kata kunci) di judul atau deskripsi
+  if (query) {
+    sql += ` AND (m.title LIKE ?)`;
+    queryParams.push(`%${query}%`, `%${query}%`);
+  }
 
   // Filter berdasarkan genre
   if (genres) {
@@ -237,9 +244,16 @@ exports.searchMovies = (req, res) => {
     queryParams.push(...statusList);
   }
 
-  // Jalankan query
+  // Jalankan query pencarian di database
   connection.query(sql, queryParams, (err, results) => {
     if (err) return res.status(500).json({ error: err.message });
+
+    // Jika hasilnya kosong, kembalikan pesan yang sesuai
+    if (results.length === 0) {
+      return res.status(404).json({ message: 'No movies found for the given query' });
+    }
+
+    // Kembalikan hasil pencarian
     res.status(200).json(results);
   });
 };

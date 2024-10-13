@@ -126,10 +126,11 @@ const HomePage = () => {
                 <img
                   src={movie.poster}
                   alt={movie.title}
+                  className="img-fluid"
                 />
                 <div className="slider-overlay"></div>
                 <div className="slider-content">
-                  <h1 className="title" style={{fontSize: '7rem'}}>{movie.title}</h1>
+                  <h1 className="title" >{movie.title}</h1>
                   <div className="sub-title">
                   {movie.year || "Year not available"}
                   {" || "}

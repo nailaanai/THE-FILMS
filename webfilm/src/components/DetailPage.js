@@ -64,15 +64,15 @@ const DetailPage = () => {
     return (
         <div className="myDP">
             <Container className="text-white">
-                <Row>
-                    <Col md={4} className="d-flex justify-content-center align-items-start mt-5">
+                <Row className="d-flex flex-wrap align-items-start">
+                    <Col xs={7} sm={6} md={4} className="d-flex justify-content-center align-items-start mt-5">
                         <img
                             src={movie.poster} 
                             style={{ width: '300px', borderRadius: '10px', boxShadow: '0 4px 8px rgba(0,0,0,0.2)' }}
                             alt="Movie Poster"
                         />
                     </Col>
-                    <Col md={8}>
+                    <Col xs ={5} sm={6} md={8}>
                         <div style={{ marginTop: '50px' }}>
                             <h1 style={{ fontSize: '35px', fontFamily: "'Bebas Neue', sans-serif", color: 'white' }}>{movie.title}</h1>
 
@@ -116,7 +116,7 @@ const DetailPage = () => {
                 </Row>
 
                 <Row className="mt-5">
-                    <Col md={12}>
+                    <Col xs={12} md={12}>
                         <h2 className="review-title mb-4">Actors</h2>
                         {movie.actors && movie.actors.length > 0 ? (
                             <AllActor actors={movie.actors} />
@@ -128,7 +128,7 @@ const DetailPage = () => {
 
                 {/* Bagian Review */}
                 <Row className="mt-5">
-                    <Col md={12}>
+                    <Col xs ={12} md={12}>
                         <h2 className="review-title mb-4">Reviews</h2> 
                         {comments && comments.length > 0 ? (
                             comments.map((review, index) => (

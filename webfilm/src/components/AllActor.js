@@ -14,7 +14,7 @@ const AllActor = ({ actors = [] }) => { // Default value untuk actors adalah arr
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 5,
+    slidesToShow: 5, // Untuk desktop
     slidesToScroll: 1,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
@@ -22,7 +22,7 @@ const AllActor = ({ actors = [] }) => { // Default value untuk actors adalah arr
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 4,
+          slidesToShow: 4, // Tablet
           slidesToScroll: 1,
           infinite: true,
           dots: true,
@@ -31,19 +31,19 @@ const AllActor = ({ actors = [] }) => { // Default value untuk actors adalah arr
       {
         breakpoint: 600,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 2, // Mobile landscape
           slidesToScroll: 1,
         }
       },
       {
         breakpoint: 480,
         settings: {
-          slidesToShow: 1,
+          slidesToShow: 2, // Mobile portrait
           slidesToScroll: 1,
         }
       }
     ]
-  };
+  };  
 
   return (
     <Container className="mt-5">

@@ -18,9 +18,10 @@ const NavigationBar = () => {
   const handleSearchSubmit = (e) => {
     e.preventDefault();
     if (searchQuery) {
-      navigate(`/search?query=${searchQuery}`);
+      navigate(`/search?query=${searchQuery}`); // Pastikan searchQuery dikirim
     }
   };
+  
 
   useEffect(() => {
     const handleScroll = () => {

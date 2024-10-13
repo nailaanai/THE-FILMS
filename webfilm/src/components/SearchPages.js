@@ -64,7 +64,7 @@ const SearchPages = () => {
   
   // Memanggil fetchMovies saat query atau filter diubah
   useEffect(() => {
-    if (selectedGenres.length > 0 || selectedCountries.length > 0 || selectedYears.length > 0 || selectedStatuses.length > 0) {
+    if (query || selectedGenres.length > 0 || selectedCountries.length > 0 || selectedYears.length > 0 || selectedStatuses.length > 0) {
       fetchMovies();
     } else {
       // Jika tidak ada filter yang dipilih, fetch semua movie
@@ -90,14 +90,14 @@ const SearchPages = () => {
       <div className="container-fluid">
         <Row>
           {/* Filter Section */}
-          <Col md={3} sm={12}>
+          <Col xs={12} md={3} sm={12}>
             <div className="filter mb-32">
               <h4 className="h-30 bold color-white mb-32 mt-3">Filtered By:</h4>
               <ul className="filter-block unstyled mb-32">
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr', rowGap: '10px' }}>
                   {/* Filter Genre */}
                   <li>
-                    <Dropdown>
+                  <Dropdown>
                       <Dropdown.Toggle variant="dark" id="dropdown-basic">Genre</Dropdown.Toggle>
                       <Dropdown.Menu>
                         <Row>
@@ -188,11 +188,11 @@ const SearchPages = () => {
           </Col>
 
           {/* Search Results Section */}
-          <Col md={9} sm={12} >
+          <Col xs={9} sm={9} md={9} lg={9} xl={9}>
             <h5 style={{ marginBottom: '50px', textAlign: 'center' }}>Search Results for: {query}</h5>
             <Row className='movie-container'>
               {limitedMovies.length > 0 ? limitedMovies.map((movie, index) => (
-                <Col key={index} md={3} sm={6} className="text-center">
+                <Col key={index} xs={4} sm={4} md={5} lg={4} xl={2} className="text-center">
                   <Link to={`/detail/${movie.id}`}>
                     <Image src={movie.poster} alt={movie.title} className="br-12" />
                     <h5>{movie.title}</h5>

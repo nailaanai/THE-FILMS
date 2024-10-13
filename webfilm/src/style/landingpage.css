@@ -359,7 +359,7 @@ input:focus{
 }
 
 .myDP{
-    height: 1000vh;
+    height: 1050vh;
     background: black;
     background-size: cover;
     padding-top: 100px;
@@ -569,7 +569,7 @@ input:focus{
 }
 
 .title {
-  font-size: 2.5rem; 
+  font-size: 10vw; 
   font-weight: bold;
   margin-bottom: 1rem;
 }
@@ -622,4 +622,35 @@ input:focus{
 
 .dropdown-toggle::after {
   display: none; /* Hide default dropdown arrow */
+}
+
+@media (max-width: 768px) {
+  img {
+    width: 100%;
+    max-width: 250px; /* Sesuaikan untuk tampilan tablet atau ponsel */
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  img {
+    width: 100%;
+    max-width: 300px; /* Sesuaikan untuk tampilan tablet landscape */
+  }
+}
+
+@media (min-width: 1025px) {
+  img {
+    width: 100%;
+    max-width: 1500px; /* Sesuaikan untuk tampilan desktop */
+  }
+}
+
+@media (max-width: 480px) {
+    .filter {
+        font-size: 14px; /* Atur ukuran font */
+    }
+    .movie-container img {
+        max-width: 100%; /* Pastikan gambar tidak melampaui batas */
+        height: auto; /* Sesuaikan tinggi dengan lebar */
+    }
 }
